@@ -79,7 +79,7 @@ class CompanyController extends Controller
             $token = md5($query . $secret);            
         
             return "https://api.thumbalizr.com/api/v1/embed/$embed_key/$token/?$query";
-        }
+        }        
 
         $_html = file_get_contents($company->url);
         //echo $html;
@@ -88,7 +88,7 @@ class CompanyController extends Controller
             if(!empty($html)){
                 $website = new Website();
                 $website->company_id = $company->id;
-                $website->html = $html;
+                $website->html = $_html;
                 
                 $thumbImg = thumbalizr($company->url);
                 if($thumbImg){

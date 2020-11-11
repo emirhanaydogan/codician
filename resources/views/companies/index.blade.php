@@ -1,6 +1,16 @@
 @extends('layout')
  
 @section('content')
+    <div class="row" style="margin-top:20px; margin-bottom:5px;">
+        <div class="col-lg-12 margin-tb">
+            <div class="float-left">
+                <h2>Companies</h2>
+            </div>
+            <div class="float-right">
+                <a class="btn btn-success" href="{{ route('companies.create') }}"> Create New Company</a>
+            </div>
+        </div>
+    </div>
   
    
     @if ($message = Session::get('success'))
@@ -12,7 +22,6 @@
    
   
     <table class="table table-striped  table-hover">
-        <caption style="caption-side: top;"><h2>Companies</h2></caption>
         <tr>
             <th><i class="fa fa-list-ol"></i> No</th>
             <th><i class="fa fa-building"></i>  Company Name</th>
@@ -30,7 +39,7 @@
             <td>{{ $company->addresses[0]->address }}</td>
             <td width="300px">
                 <form action="{{ route('companies.destroy',$company->id) }}" method="POST">
-                    <a class="btn btn-success" href="{{ route('companies.create') }}">Create</a>
+                   
                     <a class="btn btn-info" href="{{ route('companies.show',$company->id) }}">Show</a>
                     <a class="btn btn-primary" href="{{ route('companies.edit',$company->id) }}">Edit</a>
    
